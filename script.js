@@ -4,6 +4,21 @@ let historiqueVisible = false
 
 let editIndex = null
 
+const moisFrancais = [
+  'Janvier',
+  'Février',
+  'Mars',
+  'Avril',
+  'Mai',
+  'Juin',
+  'Juillet',
+  'Août',
+  'Septembre',
+  'Octobre',
+  'Novembre',
+  'Décembre',
+]
+
 function ajouterJour() {
   const production = Number(document.getElementById('production').value)
 
@@ -68,12 +83,20 @@ function afficher() {
   else if (rendement <= 99.99) body.classList.add('bg-bleu')
   else body.classList.add('bg-vert')
 
+  let mois = ''
+  if (data.length > 0) {
+    const firstDate = new Date(
+      data[data.length - 1].date.split('/').reverse().join('/'),
+    )
+    mois = moisFrancais[firstDate.getMonth()]
+  }
+
   document.getElementById('resultat').innerHTML = `
-    <strong>Total produit :</strong> ${totalProd}<br>
-    <strong>Total rebus :</strong> ${totalRebus}<br>
-    <strong>Moules conformes :</strong> ${bons}<br>
-    <strong>Rendement :</strong> ${rendement} %
-  `
+  <strong>Total produit :</strong> ${totalProd}<br>
+  <strong>Total rebus :</strong> ${totalRebus}<br>
+  <strong>Moules conformes :</strong> ${bons}<br>
+  <strong>Rendement du ${mois} :</strong> ${rendement} %
+`
 }
 
 function toggleHistorique() {
@@ -119,4 +142,11 @@ function saveEdit() {
   closeModal()
 }
 
+function resetData() {
+  if (confirm('Tout supprimer ?')) {
+    data = []
+    sauvegarder()
+    afficher()
+  }
+}
 window.onload = afficher

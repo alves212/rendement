@@ -1,38 +1,42 @@
+/* Reset box-sizing */
 * {
   box-sizing: border-box;
 }
 
+/* BODY fixo topo, sem flex vertical centralizado */
 body {
   margin: 0;
   background: #111;
   color: white;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 15px;
 }
 
+/* Container fixo horizontal, topo fixo, espaço para scroll vertical */
 .container {
   width: 100%;
   max-width: 400px;
   background: #1e1e1e;
   padding: 25px;
   border-radius: 12px;
-  margin-top: 40px;
+  margin: 0 auto;
+  position: relative;
 }
 
+/* Headings */
 h2,
 h3 {
   text-align: center;
 }
 
+/* Labels */
 label {
   display: block;
   margin-bottom: 5px;
 }
 
+/* Inputs */
 input {
   width: 100%;
   padding: 10px;
@@ -42,6 +46,7 @@ input {
   font-size: 16px;
 }
 
+/* Botões principais */
 button {
   width: 100%;
   padding: 12px;
@@ -51,41 +56,44 @@ button {
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: transform 0.1s;
 }
 
+button:active {
+  transform: scale(0.97);
+}
+
+/* Botão Reset */
 .reset {
   background: #ff5252;
   color: white;
 }
 
+/* Resultados */
 .resultat {
   margin-top: 15px;
   line-height: 1.6;
 }
 
+/* Histórico */
 #historique {
   margin-top: 10px;
   font-size: 14px;
+  max-height: 250px; /* altura máxima com scroll interno */
+  overflow-y: auto;
 }
 
+/* Cada dia */
 .jour {
   border-bottom: 1px solid #333;
   padding: 5px 0;
 }
+
+/* Botões de ação dentro de cada jour */
 .actions {
   display: flex;
   gap: 10px;
   margin-top: 6px;
-}
-
-.edit {
-  background: #ffd600;
-  color: black;
-}
-
-.delete {
-  background: #ff5252;
-  color: white;
 }
 
 .edit,
@@ -98,10 +106,22 @@ button {
   cursor: pointer;
 }
 
+.edit {
+  background: #ffd600;
+  color: black;
+}
+
+.delete {
+  background: #ff5252;
+  color: white;
+}
+
 .edit:active,
 .delete:active {
   transform: scale(0.97);
 }
+
+/* Backgrounds por rendement */
 .bg-normal {
   background: #111;
 } /* ≤ 88% */
@@ -120,15 +140,15 @@ button {
 .bg-vert {
   background: #00c853;
 } /* 100% */
+
+/* Últimos jours visíveis */
 #dernierJour {
   margin-top: 15px;
   border-bottom: 1px solid #333;
   padding-bottom: 10px;
 }
 
-.historiqueVisible {
-  display: block !important;
-}
+/* Modal */
 .modal {
   position: fixed;
   inset: 0;
@@ -151,4 +171,9 @@ button {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+/* Garantir que histórico expanda */
+.historiqueVisible {
+  display: block !important;
 }
