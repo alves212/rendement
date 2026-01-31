@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
+  <!-- Modal édition -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3>Modifier journée</h3>
+
+      <label>Date</label>
+      <input id="editDate" type="text" />
+
+      <label>Production</label>
+      <input id="editProd" type="number" />
+
+      <label>Rebus</label>
+      <input id="editRebus" type="number" />
+
+      <div class="modal-actions">
+        <button class="edit" onclick="saveEdit()">Enregistrer</button>
+        <button class="delete" onclick="closeModal()">Annuler</button>
+      </div>
+    </div>
+  </div>
+
   <body>
     <div class="container">
       <h2>Journal de Production</h2>
@@ -14,15 +35,15 @@
       <label>Production du jour</label>
       <input type="number" id="production" />
 
-      <label>Rebus du jour</label>
-      <input type="number" id="rebus" />
-
       <button onclick="ajouterJour()">Ajouter journée</button>
 
       <div class="resultat" id="resultat"></div>
 
-      <h3>Historique</h3>
-      <div id="historique"></div>
+      <button onclick="toggleHistorique()">Afficher historique</button>
+
+      <div id="dernierJour"></div>
+
+      <div id="historique" style="display: none"></div>
 
       <button class="reset" onclick="resetData()">Réinitialiser</button>
     </div>
