@@ -130,6 +130,12 @@ function sauvegarder() {
 
 function closeModal() {
   document.getElementById('modal').style.display = 'none'
+
+  // Garante que o container volte ao topo da tela
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth', // suave, opcional
+  })
 }
 
 function saveEdit() {
