@@ -3,24 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculateur de Production</title>
-
+    <title>Suivi de Production</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
-      <h2>Production Mensuelle</h2>
+      <h2>Journal de Production</h2>
 
-      <label>Nombre de jours ouvrés</label>
-      <input type="number" id="jours" />
+      <label>Production du jour</label>
+      <input type="number" id="production" />
 
-      <label>Rebus dans le mois</label>
-      <input type="number" id="erreurs" />
+      <label>Rebus du jour</label>
+      <input type="number" id="rebus" />
 
-      <button id="btnCalculer">Calculer</button>
+      <button onclick="ajouterJour()">Ajouter journée</button>
 
       <div class="resultat" id="resultat"></div>
+
+      <h3>Historique</h3>
+      <div id="historique"></div>
+
+      <button class="reset" onclick="resetData()">Réinitialiser</button>
     </div>
 
     <script src="script.js"></script>

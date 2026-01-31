@@ -4,9 +4,9 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
   background: #111;
   color: white;
+  font-family: Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -15,21 +15,21 @@ body {
 }
 
 .container {
+  width: 100%;
+  max-width: 400px;
   background: #1e1e1e;
   padding: 25px;
   border-radius: 12px;
-  width: 100%;
-  max-width: 380px;
 }
 
-h2 {
+h2,
+h3 {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 input {
@@ -44,39 +44,30 @@ input {
 button {
   width: 100%;
   padding: 12px;
+  background: #00c853;
   border: none;
   border-radius: 6px;
-  background: #00c853;
-  color: black;
   font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-button:active {
-  transform: scale(0.98);
+.reset {
+  background: #ff5252;
+  color: white;
 }
 
 .resultat {
-  margin-top: 20px;
+  margin-top: 15px;
   line-height: 1.6;
-  font-size: 15px;
 }
 
-/* 📱 Teléfonos pequenos */
-@media (max-width: 360px) {
-  .container {
-    padding: 18px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
+#historique {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-/* 💻 Desktop grande */
-@media (min-width: 1000px) {
-  .container {
-    max-width: 420px;
-  }
+.jour {
+  border-bottom: 1px solid #333;
+  padding: 5px 0;
 }
