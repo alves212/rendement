@@ -1,8 +1,11 @@
 {
   "name": "Suivi de Production",
   "short_name": "Production",
-  "start_url": "./index.html",
+  "description": "Application interne de suivi de production et rendement",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#1e1e1e",
   "theme_color": "#00c853",
   "icons": [

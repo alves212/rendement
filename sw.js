@@ -1,31 +1,44 @@
-const CACHE_NAME = 'production-app-v1'
-const urlsToCache = ['./', './index.html', './style.css', './script.js']
+const CACHE_NAME = 'production-app-v2'
 
-// Instalar o SW e armazenar os arquivos
+const urlsToCache = [
+  '.',
+  './index.html',
+  './style.css',
+  './script.js',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
+]
+
+// Instala e faz cache imediato
 self.addEventListener('install', (event) => {
+  self.skipWaiting()
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
   )
 })
 
-// Ativar o SW e limpar caches antigos
+// Ativa imediatamente e limpa caches antigos
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key)
+          if (key !== CACHE_NAME) {
+            return caches.delete(key)
+          }
         }),
       ),
     ),
   )
+  self.clients.claim()
 })
 
-// Interceptar requisições e retornar cache
+// Estratégia cache-first com fallback network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => response || fetch(event.request)),
+    caches.match(event.request).then((cached) => {
+      return cached || fetch(event.request)
+    }),
   )
 })
