@@ -41,25 +41,24 @@
 
   <body>
     <div class="container">
-      <h2>Production</h2>
+      <input type="number" id="production" placeholder="Production du jour" />
 
-      <label>Production du jour</label>
-      <input type="number" id="production" />
-
-      <button onclick="ajouterJour()">Ajouter journée</button>
+      <button id="ajouterBtn" onclick="ajouterJour()">Ajouter journée</button>
 
       <div class="resultat" id="resultat"></div>
 
-      <button onclick="toggleHistorique()">Historique</button>
+      <!-- Botões lado a lado: Historique e Réinitialiser -->
+      <div class="button-group">
+        <button onclick="toggleHistorique()">Historique</button>
+        <button class="reset" onclick="resetData()">Réinitialiser</button>
+      </div>
 
       <div id="dernierJour"></div>
 
       <div id="historique" style="display: none"></div>
-
-      <button class="reset" onclick="resetData()">Réinitialiser</button>
     </div>
 
-    <div class="version">v2.0.0</div>
+    <div class="version">v3.0.0</div>
 
     <script src="script.js"></script>
   </body>

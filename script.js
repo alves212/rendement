@@ -149,12 +149,22 @@ function saveEdit() {
 }
 
 function resetData() {
-  if (confirm('Tout supprimer ?')) {
-    data = []
-    sauvegarder()
-    afficher()
+  // Primeiro alerta
+  if (confirm('Voulez-vous vraiment tout supprimer ?')) {
+    // Segundo alerta reforçando a irreversibilidade
+    if (confirm('Cette action est irréversible. Confirmez encore ?')) {
+      // Prompt para digitar 'RESET', ignorando maiúsculas/minúsculas
+      const confirmation = prompt("Pour confirmer, tapez 'RESET' :")
+      if (confirmation && confirmation.toUpperCase() === 'RESET') {
+        data = []
+        sauvegarder()
+        afficher()
+      }
+      // Se não digitar RESET, nada acontece (silencioso)
+    }
   }
 }
+
 window.onload = afficher
 
 if ('serviceWorker' in navigator) {

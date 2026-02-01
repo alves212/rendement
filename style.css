@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 
-/* BODY fixo topo, sem flex vertical centralizado */
+/* BODY fixo, sem scroll */
 body {
   margin: 0;
   background: #111;
@@ -11,17 +11,25 @@ body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
   padding: 15px;
+  overflow: hidden; /* impede scroll do body */
 }
 
-/* Container fixo horizontal, topo fixo, espaço para scroll vertical */
+/* Container fixo na tela */
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 400px;
   background: #1e1e1e;
   padding: 25px;
   border-radius: 12px;
   margin: 0 auto;
-  position: relative;
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* evita que conteúdo vaze */
 }
 
 /* Headings */
@@ -48,39 +56,75 @@ input {
 
 /* Botões principais */
 button {
-  width: 100%;
-  padding: 12px;
-  background: #00c853;
-  border: none;
+  padding: 8px;
   border-radius: 6px;
+  border: none;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 10px;
   transition: transform 0.1s;
+  color: black; /* todas as letras dos botões pretas */
 }
 
 button:active {
   transform: scale(0.97);
 }
 
-/* Botão Reset */
-.reset {
-  background: #ff5252;
+/* Botão "Ajouter journée" */
+#ajouterBtn {
+  background: #00c853; /* verde */
+  color: black;
+}
+
+/* Container flex para botões lado a lado (Historique + Réinitialiser) */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Botões lado a lado ocupando metade cada um, igual aos modifier/delete */
+.button-group button {
+  flex: 1;
+  margin: 0;
+  color: black; /* letras pretas */
+}
+
+/* Reset */
+.button-group .reset {
+  background: #d32f2f;
   color: white;
+}
+
+/* Botão Historique */
+.button-group button:not(.reset) {
+  background: #00c853; /* verde */
 }
 
 /* Resultados */
 .resultat {
   margin-top: 15px;
   line-height: 1.6;
+  overflow-y: auto;
 }
 
-/* Histórico */
+/* Últimos jours visíveis */
+#dernierJour {
+  margin-top: 15px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  overflow-y: auto;
+}
+
+/* Histórico com scroll interno */
 #historique {
   margin-top: 10px;
   font-size: 14px;
-  max-height: 250px; /* altura máxima com scroll interno */
-  overflow-y: auto;
+  flex: 1; /* ocupa espaço restante */
+  overflow-y: auto; /* scroll só do histórico */
+  -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
 }
 
 /* Cada dia */
@@ -104,11 +148,11 @@ button:active {
   border: none;
   font-size: 14px;
   cursor: pointer;
+  color: black; /* letras pretas */
 }
 
 .edit {
   background: #ffd600;
-  color: black;
 }
 
 .delete {
@@ -121,31 +165,24 @@ button:active {
   transform: scale(0.97);
 }
 
-/* Backgrounds por rendement */
+/* Backgrounds por rendimento */
 .bg-normal {
   background: #111;
-} /* ≤ 88% */
+}
 .bg-jaune {
   background: #ffd600;
-} /* 89–91 */
+}
 .bg-rouge {
   background: #ff5252;
-} /* 92–93 */
+}
 .bg-gris {
   background: #777;
-} /* 94–96 */
+}
 .bg-bleu {
   background: #2196f3;
-} /* 97–99 */
+}
 .bg-vert {
   background: #00c853;
-} /* 100% */
-
-/* Últimos jours visíveis */
-#dernierJour {
-  margin-top: 15px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 10px;
 }
 
 /* Modal */
@@ -178,6 +215,7 @@ button:active {
   display: block !important;
 }
 
+/* Versão embaixo do container */
 .version {
   text-align: center;
   margin-top: 10px;
