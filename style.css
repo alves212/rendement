@@ -177,3 +177,10 @@ button:active {
 .historiqueVisible {
   display: block !important;
 }
+
+.version {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 11px;
+  opacity: 0.4;
+}
