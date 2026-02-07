@@ -165,24 +165,89 @@ button:active {
   transform: scale(0.97);
 }
 
-/* Backgrounds por rendimento */
+/* Backgrounds por rendement — estilo degradê central */
+
 .bg-normal {
-  background: #111;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    black 50%,
+    #000 75%,
+    #000 100%
+  );
 }
+
+/* JAUNE */
 .bg-jaune {
-  background: #ffd600;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    yellow 50%,
+    #000 75%,
+    #000 100%
+  );
 }
+
+/* ROUGE */
 .bg-rouge {
-  background: #ff5252;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    red 50%,
+    #000 75%,
+    #000 100%
+  );
 }
+
+/* GRIS */
 .bg-gris {
-  background: #777;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    gray 50%,
+    #000 75%,
+    #000 100%
+  );
 }
+
+/* BLEU */
 .bg-bleu {
-  background: #2196f3;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    blue 50%,
+    #000 75%,
+    #000 100%
+  );
 }
+
+/* VERT */
 .bg-vert {
-  background: #00c853;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    green 50%,
+    #000 75%,
+    #000 100%
+  );
+}
+
+/* 100% — spécial premium */
+.bg-100 {
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 25%,
+    purple 50%,
+    #000 75%,
+    #000 100%
+  );
 }
 
 /* Modal */

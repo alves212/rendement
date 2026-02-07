@@ -76,12 +76,13 @@ function afficher() {
   const body = document.body
   body.className = ''
 
-  if (rendement <= 88) body.classList.add('bg-normal')
-  else if (rendement <= 91) body.classList.add('bg-jaune')
-  else if (rendement <= 93) body.classList.add('bg-rouge')
-  else if (rendement <= 96) body.classList.add('bg-gris')
-  else if (rendement <= 99.99) body.classList.add('bg-bleu')
-  else body.classList.add('bg-vert')
+  if (rendement < 85) body.classList.add('bg-normal')
+  else if (rendement < 89) body.classList.add('bg-rouge')
+  else if (rendement < 91) body.classList.add('bg-jaune')
+  else if (rendement < 94) body.classList.add('bg-vert')
+  else if (rendement < 96.5) body.classList.add('bg-gris')
+  else if (rendement < 100) body.classList.add('bg-bleu')
+  else body.classList.add('bg-100')
 
   let mois = ''
   if (data.length > 0) {
