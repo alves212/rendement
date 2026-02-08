@@ -1,4 +1,4 @@
-const CACHE_NAME = 'production-app-v2'
+const CACHE_NAME = 'production-app-v5.0.0'
 
 const urlsToCache = [
   '.',

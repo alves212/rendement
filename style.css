@@ -14,6 +14,15 @@ body {
   overflow: hidden; /* impede scroll do body */
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: black; /* mesma cor do app */
+}
+
 /* Container fixo na tela */
 .container {
   width: 90%;
@@ -98,7 +107,8 @@ button:active {
 
 /* Botão Historique */
 .button-group button:not(.reset) {
-  background: #00c853; /* verde */
+  background: blue; /* verde */
+  color: white;
 }
 
 /* Resultados */
@@ -286,4 +296,34 @@ button:active {
   margin-top: 10px;
   font-size: 11px;
   opacity: 0.4;
+}
+
+#paiement {
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+}
+
+#paiement table {
+  border-collapse: separate;
+  border-spacing: 1px; /* espaço entre células */
+  margin: 0 auto;
+}
+
+#paiement td {
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  padding: 1px 0;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  text-shadow:
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
+  border-radius: 10px;
+  border: 4px solid #1e1e1e;
+  box-sizing: border-box;
 }
