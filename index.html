@@ -8,34 +8,26 @@
     />
     <title>Production</title>
 
-    <!-- Ícones -->
     <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png" />
     <link rel="apple-touch-icon" href="icon-192.png" />
-
-    <!-- Manifest PWA -->
     <link rel="manifest" href="manifest.json" />
 
-    <!-- Cor da barra de status no Android -->
     <meta name="theme-color" content="#111111" />
-
-    <!-- iOS: fullscreen e status bar transparente -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <!-- Modal édition -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <h3>Modifier journée</h3>
         <label>Date</label>
-        <input id="editDate" type="text" />
+        <input id="editDate" type="date" />
         <label>Production</label>
         <input id="editProd" type="number" />
         <label>Rebus</label>
@@ -47,78 +39,37 @@
       </div>
     </div>
 
-    <div class="container">
-      <input type="number" id="production" placeholder="Production du jour" />
-      <button id="ajouterBtn" onclick="ajouterJour()">Ajouter journée</button>
+    <div id="monthsWrapper">
+      <div class="container">
+        <input type="number" id="production" placeholder="Production du jour" />
+        <button id="ajouterBtn" onclick="ajouterJour()">Ajouter journée</button>
 
-      <div class="resultat" id="resultat"></div>
+        <div class="resultat" id="resultat"></div>
 
-      <div class="button-group">
-        <button onclick="toggleHistorique()">▼ Afficher ▼</button>
-        <button class="reset" onclick="resetData()">Réinitialiser</button>
-      </div>
+        <div class="button-group">
+          <button onclick="toggleHistorique()">▼ Afficher ▼</button>
+          <button class="reset" onclick="resetData()">Réinitialiser</button>
+        </div>
 
-      <div id="dernierJour"></div>
-      <div id="historique" style="display: none"></div>
+        <div id="dernierJour"></div>
+        <div id="historique" style="display: none"></div>
 
-      <div id="paiement" style="margin-top: 5px; overflow: auto">
-        <table
-          style="
-            width: 100%;
-            border-collapse: separate;
-            table-layout: fixed;
-            text-align: center;
-          "
-        >
-          <tbody>
-            <tr>
-              <td id="p1r1">85%</td>
-              <td id="p1r2">89%</td>
-              <td id="p1r3">91%</td>
-              <td id="p1r4">94%</td>
-              <td id="p1r5">96.5%</td>
-            </tr>
-            <tr>
-              <td id="p2r1">50</td>
-              <td id="p2r2">50</td>
-              <td id="p2r3">50</td>
-              <td id="p2r4">50</td>
-              <td id="p2r5">50</td>
-            </tr>
-            <tr>
-              <td id="p3r1">100</td>
-              <td id="p3r2">170</td>
-              <td id="p3r3">210</td>
-              <td id="p3r4">250</td>
-              <td id="p3r5">290</td>
-            </tr>
-            <tr>
-              <td id="p4r1">160</td>
-              <td id="p4r2">230</td>
-              <td id="p4r3">270</td>
-              <td id="p4r4">310</td>
-              <td id="p4r5">350</td>
-            </tr>
-            <tr>
-              <td id="p5r1">220</td>
-              <td id="p5r2">290</td>
-              <td id="p5r3">330</td>
-              <td id="p5r4">370</td>
-              <td id="p5r5">410</td>
-            </tr>
-            <tr>
-              <td id="p6r1">280</td>
-              <td id="p6r2">350</td>
-              <td id="p6r3">390</td>
-              <td id="p6r4">430</td>
-              <td id="p6r5">470</td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="paiement" style="margin-top: 5px; overflow: auto">
+          <table
+            style="
+              width: 100%;
+              border-collapse: separate;
+              table-layout: fixed;
+              text-align: center;
+            "
+          >
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-    <div class="version">v5.0.0</div>
+    <div class="version">v6.0.0</div>
 
     <script src="script.js"></script>
   </body>

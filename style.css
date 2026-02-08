@@ -1,17 +1,13 @@
-/* Reset box-sizing */
 * {
   box-sizing: border-box;
 }
 
-/* BODY fixo, sem scroll */
 body {
   margin: 0;
-  background: #111;
   color: white;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  padding: 15px;
-  overflow: hidden; /* impede scroll do body */
+  overflow: hidden;
 }
 
 html,
@@ -20,17 +16,17 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: black; /* mesma cor do app */
+  background: black;
 }
 
-/* Container fixo na tela */
 .container {
   width: 90%;
+  height: 95%;
   max-width: 400px;
   background: #1e1e1e;
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
-  margin: 0 auto;
+  margin: auto;
   position: fixed;
   top: 15px;
   left: 50%;
@@ -38,22 +34,19 @@ body {
   bottom: 15px;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* evita que conteúdo vaze */
+  overflow: hidden;
 }
 
-/* Headings */
 h2,
 h3 {
   text-align: center;
 }
 
-/* Labels */
 label {
   display: block;
   margin-bottom: 5px;
 }
 
-/* Inputs */
 input {
   width: 100%;
   padding: 10px;
@@ -63,7 +56,6 @@ input {
   font-size: 16px;
 }
 
-/* Botões principais */
 button {
   padding: 8px;
   border-radius: 6px;
@@ -72,53 +64,46 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.1s;
-  color: black; /* todas as letras dos botões pretas */
+  color: black;
 }
 
 button:active {
   transform: scale(0.97);
 }
 
-/* Botão "Ajouter journée" */
 #ajouterBtn {
-  background: #00c853; /* verde */
+  background: #00c853;
   color: black;
 }
 
-/* Container flex para botões lado a lado (Historique + Réinitialiser) */
 .button-group {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
 
-/* Botões lado a lado ocupando metade cada um, igual aos modifier/delete */
 .button-group button {
   flex: 1;
   margin: 0;
-  color: black; /* letras pretas */
+  color: black;
 }
 
-/* Reset */
 .button-group .reset {
   background: #d32f2f;
   color: white;
 }
 
-/* Botão Historique */
 .button-group button:not(.reset) {
-  background: blue; /* verde */
+  background: blue;
   color: white;
 }
 
-/* Resultados */
 .resultat {
   margin-top: 15px;
   line-height: 1.6;
   overflow-y: auto;
 }
 
-/* Últimos jours visíveis */
 #dernierJour {
   margin-top: 15px;
   border-bottom: 1px solid #333;
@@ -126,24 +111,21 @@ button:active {
   overflow-y: auto;
 }
 
-/* Histórico com scroll interno */
 #historique {
   margin-top: 10px;
   font-size: 14px;
-  flex: 1; /* ocupa espaço restante */
-  overflow-y: auto; /* scroll só do histórico */
-  -webkit-overflow-scrolling: touch; /* rolagem suave no iOS */
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   padding-bottom: 10px;
 }
 
-/* Cada dia */
 .jour {
   border-bottom: 1px solid #333;
   padding: 5px 0;
 }
 
-/* Botões de ação dentro de cada jour */
 .actions {
   display: flex;
   gap: 10px;
@@ -158,7 +140,7 @@ button:active {
   border: none;
   font-size: 14px;
   cursor: pointer;
-  color: black; /* letras pretas */
+  color: black;
 }
 
 .edit {
@@ -175,8 +157,6 @@ button:active {
   transform: scale(0.97);
 }
 
-/* Backgrounds por rendement — estilo degradê central */
-
 .bg-normal {
   background: linear-gradient(
     180deg,
@@ -188,7 +168,6 @@ button:active {
   );
 }
 
-/* JAUNE */
 .bg-jaune {
   background: linear-gradient(
     180deg,
@@ -200,7 +179,6 @@ button:active {
   );
 }
 
-/* ROUGE */
 .bg-rouge {
   background: linear-gradient(
     180deg,
@@ -212,7 +190,6 @@ button:active {
   );
 }
 
-/* GRIS */
 .bg-gris {
   background: linear-gradient(
     180deg,
@@ -224,7 +201,6 @@ button:active {
   );
 }
 
-/* BLEU */
 .bg-bleu {
   background: linear-gradient(
     180deg,
@@ -236,7 +212,6 @@ button:active {
   );
 }
 
-/* VERT */
 .bg-vert {
   background: linear-gradient(
     180deg,
@@ -248,7 +223,6 @@ button:active {
   );
 }
 
-/* 100% — spécial premium */
 .bg-100 {
   background: linear-gradient(
     180deg,
@@ -260,7 +234,6 @@ button:active {
   );
 }
 
-/* Modal */
 .modal {
   position: fixed;
   inset: 0;
@@ -285,12 +258,10 @@ button:active {
   margin-top: 10px;
 }
 
-/* Garantir que histórico expanda */
 .historiqueVisible {
   display: block !important;
 }
 
-/* Versão embaixo do container */
 .version {
   text-align: center;
   margin-top: 10px;
@@ -306,7 +277,7 @@ button:active {
 
 #paiement table {
   border-collapse: separate;
-  border-spacing: 1px; /* espaço entre células */
+  border-spacing: 1px;
   margin: 0 auto;
 }
 
@@ -326,4 +297,14 @@ button:active {
   border-radius: 10px;
   border: 4px solid #1e1e1e;
   box-sizing: border-box;
+}
+
+#monthsWrapper {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.container {
+  touch-action: pan-y;
 }
