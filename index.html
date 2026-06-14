@@ -2,75 +2,18 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#070a12" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      name="description"
+      content="Application premium de suivi de production, rebus et rendement mensuel."
     />
-    <title>Production</title>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png" />
-    <link rel="apple-touch-icon" href="icon-192.png" />
-    <link rel="manifest" href="manifest.json" />
-
-    <meta name="theme-color" content="#111111" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>Rendement</title>
   </head>
-
   <body>
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <h3>Modifier journée</h3>
-        <label>Date</label>
-        <input id="editDate" type="date" />
-        <label>Production</label>
-        <input id="editProd" type="number" />
-        <label>Rebus</label>
-        <input id="editRebus" type="number" />
-        <div class="modal-actions">
-          <button class="edit" onclick="saveEdit()">Enregistrer</button>
-          <button class="delete" onclick="closeModal()">Annuler</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="monthsWrapper">
-      <div class="container">
-        <input type="number" id="production" placeholder="Production du jour" />
-        <button id="ajouterBtn" onclick="ajouterJour()">Ajouter journée</button>
-
-        <div class="resultat" id="resultat"></div>
-
-        <div class="button-group">
-          <button onclick="toggleHistorique()">▼ Afficher ▼</button>
-          <button class="reset" onclick="resetData()">Réinitialiser</button>
-        </div>
-
-        <div id="dernierJour"></div>
-        <div id="historique" style="display: none"></div>
-
-        <div id="paiement" style="margin-top: 5px; overflow: auto">
-          <table
-            style="
-              width: 100%;
-              border-collapse: separate;
-              table-layout: fixed;
-              text-align: center;
-            "
-          >
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="version">v6.0.2</div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
